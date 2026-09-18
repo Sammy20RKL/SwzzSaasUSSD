@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.commonCodes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="commonCodes">
+          <Key>
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="entityidx" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="idx" Type="int" Nullable="false" />
+          <Property Name="entityidx" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.commonSteps' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="commonSteps">
+          <Key>
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="idmain" />
+            <PropertyRef Name="idspecific" />
+            <PropertyRef Name="hashNumber0" />
+            <PropertyRef Name="thetimestamp" />
+            <PropertyRef Name="timeouturl" />
+            <PropertyRef Name="receiveurl" />
+          </Key>
+          <Property Name="idx" Type="int" Nullable="false" />
+          <Property Name="idmain" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="idspecific" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="hashNumber0" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="thetimestamp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="timeouturl" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="receiveurl" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.Languages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Entry" />
+          </Key>
+          <Property Name="Entry" Type="int" Nullable="false" />
+          <Property Name="Languagecode" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Messagecode" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.Menu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Entry No" />
+            <PropertyRef Name="Sacco ID" />
+            <PropertyRef Name="Trans Type" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Menu Order" />
+          </Key>
+          <Property Name="Entry No" Type="int" Nullable="false" />
+          <Property Name="Sacco ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Trans Type" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Menu Order" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MPESA Deposit">
+          <Key>
+            <PropertyRef Name="Entry No" />
+          </Key>
+          <Property Name="Entry No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sacco ID" Type="nvarchar(max)" />
+          <Property Name="Doc No" Type="nvarchar(max)" />
+          <Property Name="Key word" Type="nvarchar(max)" />
+          <Property Name="Account No" Type="nvarchar(max)" />
+          <Property Name="Account Name" Type="nvarchar(max)" />
+          <Property Name="Telephone" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Charge" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Sent to Journal" Type="bit" />
+          <Property Name="Date Sent to Journal" Type="datetime" />
+          <Property Name="Time Sent to Journal" Type="datetime" />
+          <Property Name="PayBill No" Type="nvarchar(max)" />
+          <Property Name="Sacco Acc Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="Sent to Vendor" Type="bit" />
+          <Property Name="Date Sent to Vendor" Type="datetime" />
+          <Property Name="Test Sent to Journal" Type="bit" />
+          <Property Name="smsFloatProcessed" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MPESA Withdrawals">
+          <Key>
+            <PropertyRef Name="Entry No" />
+          </Key>
+          <Property Name="Entry No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Account No" Type="nvarchar(max)" />
+          <Property Name="Account Name" Type="nvarchar(max)" />
+          <Property Name="Telephone" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="Text File Created" Type="nvarchar(max)" />
+          <Property Name="Date File Created" Type="datetime" />
+          <Property Name="Time File Created" Type="datetime" />
+          <Property Name="SMS Sent" Type="nvarchar(max)" />
+          <Property Name="Date SMS Sent" Type="datetime" />
+          <Property Name="Time SMS Sent" Type="datetime" />
+          <Property Name="SESSION ID" Type="nvarchar(max)" />
+          <Property Name="Transaction Date" Type="datetime" />
+          <Property Name="Sent to Journal" Type="nvarchar(max)" />
+          <Property Name="Date Sent to Journal" Type="datetime" />
+          <Property Name="Time Sent to Journal" Type="datetime" />
+          <Property Name="Sacco ID" Type="nvarchar(max)" />
+          <Property Name="Account Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Request Confirmed" Type="nvarchar(max)" />
+          <Property Name="Response Status" Type="nvarchar(max)" />
+          <Property Name="Response Value" Type="nvarchar(max)" />
+          <Property Name="Datetime" Type="datetime" />
+          <Property Name="Money Received" Type="int" />
+          <Property Name="Source" Type="bit" />
+          <Property Name="Transaction Type" Type="int" />
+          <Property Name="Sacco Source" Type="int" />
+          <Property Name="Broker Resp Code" Type="nvarchar(max)" />
+          <Property Name="Broker Resp Desc" Type="nvarchar(max)" />
+          <Property Name="Broker Conv ID" Type="nvarchar(max)" />
+          <Property Name="Broker Orig Conv ID" Type="nvarchar(max)" />
+          <Property Name="Broker Service Status" Type="nvarchar(max)" />
+          <Property Name="MPESA Result Type" Type="nvarchar(max)" />
+          <Property Name="MPESA Result Code" Type="nvarchar(max)" />
+          <Property Name="MPESA Result Desc" Type="nvarchar(max)" />
+          <Property Name="MPESA Conv ID" Type="nvarchar(max)" />
+          <Property Name="MPESA Receipt No" Type="nvarchar(max)" />
+          <Property Name="MPESA DateTime" Type="datetime" />
+          <Property Name="MPESA Float Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Document No" Type="nvarchar(max)" />
+          <Property Name="MPesa Name" Type="nvarchar(max)" />
+          <Property Name="Charge" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Sent to Vendor" Type="bit" />
+          <Property Name="Date Sent to Vendor" Type="datetime" />
+          <Property Name="Application Type" Type="varchar" MaxLength="50" />
+          <Property Name="Balance_Notification" Type="varchar" MaxLength="20" />
+          <Property Name="Loan Period" Type="int" />
+          <Property Name="Amount2" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RequestedIp" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="mpesaB2Ctariffs">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="lowerAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="upperAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="chargeAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="tariffStartDate" Type="datetime" Nullable="false" />
+          <Property Name="tariffEndDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MTransaction">
+          <Key>
+            <PropertyRef Name="EntryNo" />
+          </Key>
+          <Property Name="EntryNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionID" Type="nvarchar" MaxLength="100" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="ClientCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telephone" Type="varchar" MaxLength="30" />
+          <Property Name="DocumentNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AccountNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" />
+          <Property Name="TransactionType" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Charge" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Posted" Type="bit" />
+          <Property Name="DatePosted" Type="datetime" />
+          <Property Name="DestinationAccount" Type="varchar" MaxLength="30" />
+          <Property Name="LoanType" Type="varchar" MaxLength="50" />
+          <Property Name="LoanNo" Type="varchar" MaxLength="30" />
+          <Property Name="LoanPeriod" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Comments" Type="varchar" MaxLength="250" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="SentToCBS" Type="bit" />
+          <Property Name="DateSentToCBS" Type="datetime" />
+          <Property Name="ProviderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProviderID" Type="int" />
+          <Property Name="ApplicationType" Type="varchar" MaxLength="50" />
+          <Property Name="SaccoCode" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.Proxy Auth' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Proxy Auth">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="Entry" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Public Ip" Type="varchar" MaxLength="1000" />
+          <Property Name="Datetime_Created" Type="datetime" />
+          <Property Name="Client_ID" Type="varchar" MaxLength="50" />
+          <Property Name="public ip 2" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="STKPushTransactions">
+          <Key>
+            <PropertyRef Name="Entry" />
+          </Key>
+          <Property Name="Entry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaccoID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" />
+          <Property Name="DocumentNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DocumentDate" Type="datetime" />
+          <Property Name="Transaction Type" Type="int" />
+          <Property Name="Telephone" Type="varchar" MaxLength="30" />
+          <Property Name="Posted" Type="bit" />
+          <Property Name="Date Posted" Type="datetime" />
+          <Property Name="Account 2" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Comments" Type="varchar" MaxLength="250" />
+          <Property Name="Amount" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Charge" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Sent to Vendor" Type="bit" />
+          <Property Name="Date Sent to Vendor" Type="datetime" />
+          <Property Name="Application Type" Type="varchar" MaxLength="50" />
+          <Property Name="MerchantRequestID" Type="varchar" MaxLength="250" />
+          <Property Name="CheckoutRequestID" Type="varchar" MaxLength="250" />
+          <Property Name="ResponseCode" Type="varchar" MaxLength="250" />
+          <Property Name="ResponseDescription" Type="varchar" MaxLength="250" />
+          <Property Name="CustomerMessage" Type="varchar" MaxLength="250" />
+          <Property Name="BusinessShortCode" Type="varchar" MaxLength="1000" />
+          <Property Name="STK_ResultCode" Type="varchar" MaxLength="50" />
+          <Property Name="STK_ResultDesc" Type="varchar" MaxLength="250" />
+          <Property Name="STK_Confirmed" Type="varchar" MaxLength="250" />
+          <Property Name="SaccoCode" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.Transaction Types' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Transaction Types">
+          <Key>
+            <PropertyRef Name="Entry No" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Entry No" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ussd">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+          </Key>
+          <Property Name="Entry_No" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SESSION" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Client" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Entry" Type="int" Nullable="false" />
+          <Property Name="Menu_Count" Type="int" Nullable="false" />
+          <Property Name="OPTION" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Transaction_Time" Type="datetime" Nullable="false" />
+          <Property Name="Trans_Type" Type="int" Nullable="false" />
+          <Property Name="USSD_STRING" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="IMSI" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="GoBack" Type="bit" Nullable="false" />
+          <Property Name="FlowStartIndex" Type="int" Nullable="false" />
+          <Property Name="SACCO_CODE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwizzKash Mobile DB.dbo.USSD_LOGS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="USSD_LOGS">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+            <PropertyRef Name="Telephone" />
+          </Key>
+          <Property Name="Entry_No" Type="int" Nullable="false" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="client_id" Type="varchar" MaxLength="20" />
+          <Property Name="client_name" Type="varchar" MaxLength="50" />
+          <Property Name="Response_string" Type="varchar" MaxLength="1000" />
+          <Property Name="Request_string" Type="varchar" MaxLength="1000" />
+          <Property Name="Date_Request" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="MPESA Deposit" EntityType="Self.MPESA Deposit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MPESA Withdrawals" EntityType="Self.MPESA Withdrawals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mpesaB2Ctariffs" EntityType="Self.mpesaB2Ctariffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MTransaction" EntityType="Self.MTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STKPushTransactions" EntityType="Self.STKPushTransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ussd" EntityType="Self.Ussd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="commonCodes" EntityType="Self.commonCodes" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[commonCodes].[idx] AS [idx], 
+[commonCodes].[entityidx] AS [entityidx], 
+[commonCodes].[code] AS [code]
+FROM [dbo].[commonCodes] AS [commonCodes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="commonSteps" EntityType="Self.commonSteps" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[commonSteps].[idx] AS [idx], 
+[commonSteps].[idmain] AS [idmain], 
+[commonSteps].[idspecific] AS [idspecific], 
+[commonSteps].[hashNumber0] AS [hashNumber0], 
+[commonSteps].[thetimestamp] AS [thetimestamp], 
+[commonSteps].[timeouturl] AS [timeouturl], 
+[commonSteps].[receiveurl] AS [receiveurl]
+FROM [dbo].[commonSteps] AS [commonSteps]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Languages" EntityType="Self.Languages" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Languages].[Entry] AS [Entry], 
+[Languages].[Languagecode] AS [Languagecode], 
+[Languages].[Message] AS [Message], 
+[Languages].[Messagecode] AS [Messagecode]
+FROM [dbo].[Languages] AS [Languages]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Menu" EntityType="Self.Menu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Menu].[Entry No] AS [Entry No], 
+[Menu].[Sacco ID] AS [Sacco ID], 
+[Menu].[Trans Type] AS [Trans Type], 
+[Menu].[Description] AS [Description], 
+[Menu].[Menu Order] AS [Menu Order]
+FROM [dbo].[Menu] AS [Menu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proxy Auth" EntityType="Self.Proxy Auth" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Proxy Auth].[Entry] AS [Entry], 
+[Proxy Auth].[UserName] AS [UserName], 
+[Proxy Auth].[Password] AS [Password], 
+[Proxy Auth].[Public Ip] AS [Public Ip], 
+[Proxy Auth].[Datetime_Created] AS [Datetime_Created], 
+[Proxy Auth].[Client_ID] AS [Client_ID], 
+[Proxy Auth].[public ip 2] AS [public ip 2]
+FROM [dbo].[Proxy Auth] AS [Proxy Auth]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Transaction Types" EntityType="Self.Transaction Types" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Transaction Types].[Entry No] AS [Entry No], 
+[Transaction Types].[Type] AS [Type], 
+[Transaction Types].[Description] AS [Description]
+FROM [dbo].[Transaction Types] AS [Transaction Types]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USSD_LOGS" EntityType="Self.USSD_LOGS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[USSD_LOGS].[Entry_No] AS [Entry_No], 
+[USSD_LOGS].[Telephone] AS [Telephone], 
+[USSD_LOGS].[client_id] AS [client_id], 
+[USSD_LOGS].[client_name] AS [client_name], 
+[USSD_LOGS].[Response_string] AS [Response_string], 
+[USSD_LOGS].[Request_string] AS [Request_string], 
+[USSD_LOGS].[Date_Request] AS [Date_Request]
+FROM [dbo].[USSD_LOGS] AS [USSD_LOGS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MPESA_Deposit">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+          </Key>
+          <Property Name="Entry_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sacco_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Doc_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Key_word" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Charge" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sent_to_Journal" Type="Boolean" />
+          <Property Name="Date_Sent_to_Journal" Type="DateTime" Precision="3" />
+          <Property Name="Time_Sent_to_Journal" Type="DateTime" Precision="3" />
+          <Property Name="PayBill_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sacco_Acc_Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sent_to_Vendor" Type="Boolean" />
+          <Property Name="Date_Sent_to_Vendor" Type="DateTime" Precision="3" />
+          <Property Name="Test_Sent_to_Journal" Type="Boolean" />
+          <Property Name="smsFloatProcessed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MPESA_Withdrawal">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+          </Key>
+          <Property Name="Entry_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text_File_Created" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_File_Created" Type="DateTime" Precision="3" />
+          <Property Name="Time_File_Created" Type="DateTime" Precision="3" />
+          <Property Name="SMS_Sent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_SMS_Sent" Type="DateTime" Precision="3" />
+          <Property Name="Time_SMS_Sent" Type="DateTime" Precision="3" />
+          <Property Name="SESSION_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Transaction_Date" Type="DateTime" Precision="3" />
+          <Property Name="Sent_to_Journal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Sent_to_Journal" Type="DateTime" Precision="3" />
+          <Property Name="Time_Sent_to_Journal" Type="DateTime" Precision="3" />
+          <Property Name="Sacco_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account_Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Request_Confirmed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Money_Received" Type="Int32" />
+          <Property Name="Source" Type="Boolean" />
+          <Property Name="Transaction_Type" Type="Int32" />
+          <Property Name="Sacco_Source" Type="Int32" />
+          <Property Name="Broker_Resp_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Broker_Resp_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Broker_Conv_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Broker_Orig_Conv_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Broker_Service_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPESA_Result_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPESA_Result_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPESA_Result_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPESA_Conv_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPESA_Receipt_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPESA_DateTime" Type="DateTime" Precision="3" />
+          <Property Name="MPESA_Float_Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Document_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MPesa_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Charge" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sent_to_Vendor" Type="Boolean" />
+          <Property Name="Date_Sent_to_Vendor" Type="DateTime" Precision="3" />
+          <Property Name="Application_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Balance_Notification" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Loan_Period" Type="Int32" />
+          <Property Name="Amount2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RequestedIp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mpesaB2Ctariffs">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lowerAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="upperAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="chargeAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="tariffStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tariffEndDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="MTransaction">
+          <Key>
+            <PropertyRef Name="EntryNo" />
+          </Key>
+          <Property Name="EntryNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="ClientCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionType" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Charge" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Posted" Type="Boolean" />
+          <Property Name="DatePosted" Type="DateTime" Precision="3" />
+          <Property Name="DestinationAccount" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LoanType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoanNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LoanPeriod" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SentToCBS" Type="Boolean" />
+          <Property Name="DateSentToCBS" Type="DateTime" Precision="3" />
+          <Property Name="ProviderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderID" Type="Int32" />
+          <Property Name="ApplicationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaccoCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="STKPushTransaction">
+          <Key>
+            <PropertyRef Name="Entry" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaccoID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentDate" Type="DateTime" Precision="3" />
+          <Property Name="Transaction_Type" Type="Int32" />
+          <Property Name="Telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Posted" Type="Boolean" />
+          <Property Name="Date_Posted" Type="DateTime" Precision="3" />
+          <Property Name="Account_2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Charge" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sent_to_Vendor" Type="Boolean" />
+          <Property Name="Date_Sent_to_Vendor" Type="DateTime" Precision="3" />
+          <Property Name="Application_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MerchantRequestID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CheckoutRequestID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ResponseCode" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ResponseDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerMessage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessShortCode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="STK_ResultCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STK_ResultDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="STK_Confirmed" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SaccoCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ussd">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+          </Key>
+          <Property Name="Entry_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SESSION" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Count" Type="Int32" Nullable="false" />
+          <Property Name="OPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Transaction_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Trans_Type" Type="Int32" Nullable="false" />
+          <Property Name="USSD_STRING" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMSI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoBack" Type="Boolean" Nullable="false" />
+          <Property Name="FlowStartIndex" Type="Int32" Nullable="false" />
+          <Property Name="SACCO_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="commonCode">
+          <Key>
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="entityidx" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" />
+          <Property Name="entityidx" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="commonStep">
+          <Key>
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="idmain" />
+            <PropertyRef Name="idspecific" />
+            <PropertyRef Name="hashNumber0" />
+            <PropertyRef Name="thetimestamp" />
+            <PropertyRef Name="timeouturl" />
+            <PropertyRef Name="receiveurl" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" />
+          <Property Name="idmain" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idspecific" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="hashNumber0" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="thetimestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="timeouturl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receiveurl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Entry" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Languagecode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Messagecode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+            <PropertyRef Name="Sacco_ID" />
+            <PropertyRef Name="Trans_Type" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Menu_Order" />
+          </Key>
+          <Property Name="Entry_No" Type="Int32" Nullable="false" />
+          <Property Name="Sacco_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Trans_Type" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Menu_Order" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proxy_Auth">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Public_Ip" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Datetime_Created" Type="DateTime" Precision="3" />
+          <Property Name="Client_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="public_ip_2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Transaction_Type">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Entry_No" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USSD_LOGS">
+          <Key>
+            <PropertyRef Name="Entry_No" />
+            <PropertyRef Name="Telephone" />
+          </Key>
+          <Property Name="Entry_No" Type="Int32" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="client_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Response_string" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Request_string" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Request" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="SwizzKash_Mobile_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MPESA_Deposits" EntityType="Self.MPESA_Deposit" />
+          <EntitySet Name="MPESA_Withdrawals" EntityType="Self.MPESA_Withdrawal" />
+          <EntitySet Name="mpesaB2Ctariffs" EntityType="Self.mpesaB2Ctariffs" />
+          <EntitySet Name="MTransactions" EntityType="Self.MTransaction" />
+          <EntitySet Name="STKPushTransactions" EntityType="Self.STKPushTransaction" />
+          <EntitySet Name="Ussds" EntityType="Self.Ussd" />
+          <EntitySet Name="commonCodes" EntityType="Self.commonCode" />
+          <EntitySet Name="commonSteps" EntityType="Self.commonStep" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Proxy_Auths" EntityType="Self.Proxy_Auth" />
+          <EntitySet Name="Transaction_Types" EntityType="Self.Transaction_Type" />
+          <EntitySet Name="USSD_LOGS" EntityType="Self.USSD_LOGS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="SwizzKash_Mobile_DBEntities">
+          <EntitySetMapping Name="MPESA_Deposits">
+            <EntityTypeMapping TypeName="Model.MPESA_Deposit">
+              <MappingFragment StoreEntitySet="MPESA Deposit">
+                <ScalarProperty Name="Entry_No" ColumnName="Entry No" />
+                <ScalarProperty Name="Sacco_ID" ColumnName="Sacco ID" />
+                <ScalarProperty Name="Doc_No" ColumnName="Doc No" />
+                <ScalarProperty Name="Key_word" ColumnName="Key word" />
+                <ScalarProperty Name="Account_No" ColumnName="Account No" />
+                <ScalarProperty Name="Account_Name" ColumnName="Account Name" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Sent_to_Journal" ColumnName="Sent to Journal" />
+                <ScalarProperty Name="Date_Sent_to_Journal" ColumnName="Date Sent to Journal" />
+                <ScalarProperty Name="Time_Sent_to_Journal" ColumnName="Time Sent to Journal" />
+                <ScalarProperty Name="PayBill_No" ColumnName="PayBill No" />
+                <ScalarProperty Name="Sacco_Acc_Balance" ColumnName="Sacco Acc Balance" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Sent_to_Vendor" ColumnName="Sent to Vendor" />
+                <ScalarProperty Name="Date_Sent_to_Vendor" ColumnName="Date Sent to Vendor" />
+                <ScalarProperty Name="Test_Sent_to_Journal" ColumnName="Test Sent to Journal" />
+                <ScalarProperty Name="smsFloatProcessed" ColumnName="smsFloatProcessed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MPESA_Withdrawals">
+            <EntityTypeMapping TypeName="Model.MPESA_Withdrawal">
+              <MappingFragment StoreEntitySet="MPESA Withdrawals">
+                <ScalarProperty Name="Entry_No" ColumnName="Entry No" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Account_No" ColumnName="Account No" />
+                <ScalarProperty Name="Account_Name" ColumnName="Account Name" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Text_File_Created" ColumnName="Text File Created" />
+                <ScalarProperty Name="Date_File_Created" ColumnName="Date File Created" />
+                <ScalarProperty Name="Time_File_Created" ColumnName="Time File Created" />
+                <ScalarProperty Name="SMS_Sent" ColumnName="SMS Sent" />
+                <ScalarProperty Name="Date_SMS_Sent" ColumnName="Date SMS Sent" />
+                <ScalarProperty Name="Time_SMS_Sent" ColumnName="Time SMS Sent" />
+                <ScalarProperty Name="SESSION_ID" ColumnName="SESSION ID" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction Date" />
+                <ScalarProperty Name="Sent_to_Journal" ColumnName="Sent to Journal" />
+                <ScalarProperty Name="Date_Sent_to_Journal" ColumnName="Date Sent to Journal" />
+                <ScalarProperty Name="Time_Sent_to_Journal" ColumnName="Time Sent to Journal" />
+                <ScalarProperty Name="Sacco_ID" ColumnName="Sacco ID" />
+                <ScalarProperty Name="Account_Balance" ColumnName="Account Balance" />
+                <ScalarProperty Name="Request_Confirmed" ColumnName="Request Confirmed" />
+                <ScalarProperty Name="Response_Status" ColumnName="Response Status" />
+                <ScalarProperty Name="Response_Value" ColumnName="Response Value" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="Money_Received" ColumnName="Money Received" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction Type" />
+                <ScalarProperty Name="Sacco_Source" ColumnName="Sacco Source" />
+                <ScalarProperty Name="Broker_Resp_Code" ColumnName="Broker Resp Code" />
+                <ScalarProperty Name="Broker_Resp_Desc" ColumnName="Broker Resp Desc" />
+                <ScalarProperty Name="Broker_Conv_ID" ColumnName="Broker Conv ID" />
+                <ScalarProperty Name="Broker_Orig_Conv_ID" ColumnName="Broker Orig Conv ID" />
+                <ScalarProperty Name="Broker_Service_Status" ColumnName="Broker Service Status" />
+                <ScalarProperty Name="MPESA_Result_Type" ColumnName="MPESA Result Type" />
+                <ScalarProperty Name="MPESA_Result_Code" ColumnName="MPESA Result Code" />
+                <ScalarProperty Name="MPESA_Result_Desc" ColumnName="MPESA Result Desc" />
+                <ScalarProperty Name="MPESA_Conv_ID" ColumnName="MPESA Conv ID" />
+                <ScalarProperty Name="MPESA_Receipt_No" ColumnName="MPESA Receipt No" />
+                <ScalarProperty Name="MPESA_DateTime" ColumnName="MPESA DateTime" />
+                <ScalarProperty Name="MPESA_Float_Amount" ColumnName="MPESA Float Amount" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Document_No" ColumnName="Document No" />
+                <ScalarProperty Name="MPesa_Name" ColumnName="MPesa Name" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Sent_to_Vendor" ColumnName="Sent to Vendor" />
+                <ScalarProperty Name="Date_Sent_to_Vendor" ColumnName="Date Sent to Vendor" />
+                <ScalarProperty Name="Application_Type" ColumnName="Application Type" />
+                <ScalarProperty Name="Balance_Notification" ColumnName="Balance_Notification" />
+                <ScalarProperty Name="Loan_Period" ColumnName="Loan Period" />
+                <ScalarProperty Name="Amount2" ColumnName="Amount2" />
+                <ScalarProperty Name="RequestedIp" ColumnName="RequestedIp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mpesaB2Ctariffs">
+            <EntityTypeMapping TypeName="Model.mpesaB2Ctariffs">
+              <MappingFragment StoreEntitySet="mpesaB2Ctariffs">
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="clientCode" ColumnName="clientCode" />
+                <ScalarProperty Name="lowerAmount" ColumnName="lowerAmount" />
+                <ScalarProperty Name="upperAmount" ColumnName="upperAmount" />
+                <ScalarProperty Name="chargeAmount" ColumnName="chargeAmount" />
+                <ScalarProperty Name="tariffStartDate" ColumnName="tariffStartDate" />
+                <ScalarProperty Name="tariffEndDate" ColumnName="tariffEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTransactions">
+            <EntityTypeMapping TypeName="Model.MTransaction">
+              <MappingFragment StoreEntitySet="MTransaction">
+                <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+                <ScalarProperty Name="DestinationAccount" ColumnName="DestinationAccount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="LoanNo" ColumnName="LoanNo" />
+                <ScalarProperty Name="LoanPeriod" ColumnName="LoanPeriod" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SentToCBS" ColumnName="SentToCBS" />
+                <ScalarProperty Name="DateSentToCBS" ColumnName="DateSentToCBS" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="SaccoCode" ColumnName="SaccoCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STKPushTransactions">
+            <EntityTypeMapping TypeName="Model.STKPushTransaction">
+              <MappingFragment StoreEntitySet="STKPushTransactions">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="SaccoID" ColumnName="SaccoID" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction Type" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="Date_Posted" ColumnName="Date Posted" />
+                <ScalarProperty Name="Account_2" ColumnName="Account 2" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Sent_to_Vendor" ColumnName="Sent to Vendor" />
+                <ScalarProperty Name="Date_Sent_to_Vendor" ColumnName="Date Sent to Vendor" />
+                <ScalarProperty Name="Application_Type" ColumnName="Application Type" />
+                <ScalarProperty Name="MerchantRequestID" ColumnName="MerchantRequestID" />
+                <ScalarProperty Name="CheckoutRequestID" ColumnName="CheckoutRequestID" />
+                <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+                <ScalarProperty Name="ResponseDescription" ColumnName="ResponseDescription" />
+                <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+                <ScalarProperty Name="BusinessShortCode" ColumnName="BusinessShortCode" />
+                <ScalarProperty Name="STK_ResultCode" ColumnName="STK_ResultCode" />
+                <ScalarProperty Name="STK_ResultDesc" ColumnName="STK_ResultDesc" />
+                <ScalarProperty Name="STK_Confirmed" ColumnName="STK_Confirmed" />
+                <ScalarProperty Name="SaccoCode" ColumnName="SaccoCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ussds">
+            <EntityTypeMapping TypeName="Model.Ussd">
+              <MappingFragment StoreEntitySet="Ussd">
+                <ScalarProperty Name="Entry_No" ColumnName="Entry_No" />
+                <ScalarProperty Name="SESSION" ColumnName="SESSION" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Menu_Count" ColumnName="Menu_Count" />
+                <ScalarProperty Name="OPTION" ColumnName="OPTION" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Transaction_Time" ColumnName="Transaction_Time" />
+                <ScalarProperty Name="Trans_Type" ColumnName="Trans_Type" />
+                <ScalarProperty Name="USSD_STRING" ColumnName="USSD_STRING" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="IMSI" ColumnName="IMSI" />
+                <ScalarProperty Name="GoBack" ColumnName="GoBack" />
+                <ScalarProperty Name="FlowStartIndex" ColumnName="FlowStartIndex" />
+                <ScalarProperty Name="SACCO_CODE" ColumnName="SACCO_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commonCodes">
+            <EntityTypeMapping TypeName="Model.commonCode">
+              <MappingFragment StoreEntitySet="commonCodes">
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="entityidx" ColumnName="entityidx" />
+                <ScalarProperty Name="code" ColumnName="code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commonSteps">
+            <EntityTypeMapping TypeName="Model.commonStep">
+              <MappingFragment StoreEntitySet="commonSteps">
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="idmain" ColumnName="idmain" />
+                <ScalarProperty Name="idspecific" ColumnName="idspecific" />
+                <ScalarProperty Name="hashNumber0" ColumnName="hashNumber0" />
+                <ScalarProperty Name="thetimestamp" ColumnName="thetimestamp" />
+                <ScalarProperty Name="timeouturl" ColumnName="timeouturl" />
+                <ScalarProperty Name="receiveurl" ColumnName="receiveurl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="Model.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Languagecode" ColumnName="Languagecode" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Messagecode" ColumnName="Messagecode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Entry_No" ColumnName="Entry No" />
+                <ScalarProperty Name="Sacco_ID" ColumnName="Sacco ID" />
+                <ScalarProperty Name="Trans_Type" ColumnName="Trans Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Menu_Order" ColumnName="Menu Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proxy_Auths">
+            <EntityTypeMapping TypeName="Model.Proxy_Auth">
+              <MappingFragment StoreEntitySet="Proxy Auth">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Public_Ip" ColumnName="Public Ip" />
+                <ScalarProperty Name="Datetime_Created" ColumnName="Datetime_Created" />
+                <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+                <ScalarProperty Name="public_ip_2" ColumnName="public ip 2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction_Types">
+            <EntityTypeMapping TypeName="Model.Transaction_Type">
+              <MappingFragment StoreEntitySet="Transaction Types">
+                <ScalarProperty Name="Entry_No" ColumnName="Entry No" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USSD_LOGS">
+            <EntityTypeMapping TypeName="Model.USSD_LOGS">
+              <MappingFragment StoreEntitySet="USSD_LOGS">
+                <ScalarProperty Name="Entry_No" ColumnName="Entry_No" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="Response_string" ColumnName="Response_string" />
+                <ScalarProperty Name="Request_string" ColumnName="Request_string" />
+                <ScalarProperty Name="Date_Request" ColumnName="Date_Request" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

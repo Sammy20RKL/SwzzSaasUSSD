@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SwizzMobile.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="username" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Mobile</Value>
+    </Setting>
+    <Setting Name="password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Swizzsoft@2024</Value>
+    </Setting>
+    <Setting Name="domain" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="mobileService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://win-7flcnmjot1t:7047/BC270/WS/Test%20Company/Codeunit/MobileService</Value>
+    </Setting>
+    <Setting Name="ConnString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">data source=WIN-7FLCNMJOT1T;initial catalog=SwizzKash USSD;user id=Mobile;password=Mw@mba-J1w3%;encrypt=False;MultipleActiveResultSets=True;App=EntityFramework</Value>
+    </Setting>
+    <Setting Name="SwizzMobile_PolytechWebRef_MobileService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://win-7flcnmjot1t:7047/BC270/WS/Test%20Company/Codeunit/MobileService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
